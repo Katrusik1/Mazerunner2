@@ -20,8 +20,8 @@ public class Spawnenemy : MonoBehaviour
     {
         for(int i = 0; i < spawningPoints.Length; i++)
         {
-            Debug.Log(enemy.Length);
             GameObject newenemy = Instantiate(enemy[Random.Range(0, enemy.Length)]);
+            newenemy.GetComponent<Take>().WhoTakes = GetComponent<Collider>().gameObject;
             newenemy.transform.position = spawningPoints[i].transform.position;
         }
     }
