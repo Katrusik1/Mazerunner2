@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6975497155788886916, guid: 67f716418f7ba2146a845739c7782755, type: 3}
       propertyPath: m_Name
-      value: AKM
+      value: AKM_upd
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f716418f7ba2146a845739c7782755, type: 3}
@@ -103,21 +103,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 5.45, z: 20.73}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8714839830935323833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913399691649202889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e27998ea03a2884d905e137304e4398, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WhoTakes: {fileID: 0}
-  distance: 40
-  isTaking: 0
 --- !u!114 &1308025149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,3 +120,18 @@ MonoBehaviour:
   fireRate: 15
   ammo: 27
   fpsCam: {fileID: 0}
+--- !u!114 &8714839830935323833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913399691649202889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e27998ea03a2884d905e137304e4398, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WhoTakes: {fileID: 4948725562573880114, guid: df8210951219b534ca283a66fce09e94, type: 3}
+  distance: 40
+  isTaking: 0
