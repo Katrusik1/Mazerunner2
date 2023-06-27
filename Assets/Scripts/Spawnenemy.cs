@@ -18,11 +18,13 @@ public class Spawnenemy : MonoBehaviour
 
     private void spawn()
     {
-        for(int i = 0; i < spawningPoints.Length; i++)
+        Debug.Log(enemy.Length);
+        Debug.Log(spawningPoints.Length);
+        for(int i = 0; i < spawningPoints.Length;)
         {
-            GameObject newenemy = Instantiate(enemy[Random.Range(0, enemy.Length)]);
-            newenemy.GetComponent<Take>().WhoTakes = GetComponent<Collider>().gameObject;
-            newenemy.transform.position = spawningPoints[i].transform.position;
+            GameObject newenemy = Instantiate(enemy[Random.Range(0, enemy.Length-1)]);
+            newenemy.transform.position = spawningPoints[i].transform.position + new Vector3(0, 0.5f,0);
+            i += 1;
         }
     }
 }

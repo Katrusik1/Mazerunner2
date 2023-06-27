@@ -7,14 +7,15 @@ public class Gun : MonoBehaviour
     public float fireRate = 15f;
     public int ammo = 27;
 
-    public Camera fpsCam =null;
+    public Camera fpsCam;
+    public AudioSource audioSource;
     //public ParticleSystem muzzleFlash;
 
     private float nextShoot = 0f;
 
     void Start()
     {
-
+        fpsCam = null;
     }
 
     void Update()
@@ -23,18 +24,19 @@ public class Gun : MonoBehaviour
         {
             if (ammo > 0)
             {
-                if (Input.GetButton("Fire1"))
+                if (Input.GetButtonDown("Fire1"))
                 {
                     if (Time.time >= nextShoot)
                     {
                         nextShoot = Time.time + 1f / fireRate;
                         Shoot();
+                        audioSource.Play();
 
                     }
                     ammo -= 1;
                 }
             }
-            else ammo = 27;
+            else ammo = 0;
         }
     }
 

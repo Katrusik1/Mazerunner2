@@ -1356,7 +1356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy:
-  - {fileID: 913399691649202889, guid: 312c4d5b02b986d45b21ae3c6493c347, type: 3}
+  - {fileID: 303769548714169147, guid: cfef66d53b98064408ca746ce67a4d01, type: 3}
   spawningPoints:
   - {fileID: 7194242650478158449}
   - {fileID: 7194242650478158449}
