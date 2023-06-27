@@ -10,7 +10,7 @@ public class Spawnenemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (canspawn)
-        {
+        { 
             spawn();
             canspawn = false;
         }
