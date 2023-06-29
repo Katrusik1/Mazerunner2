@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float speed;
+    public float damage;
+    public float cddamage;
+    protected Target target;
+    protected float hp;
+
+    protected virtual void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         
     }
