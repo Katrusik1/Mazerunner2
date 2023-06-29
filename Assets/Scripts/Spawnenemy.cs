@@ -22,17 +22,11 @@ public class Spawnenemy : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (transform.childCount == 0)
+        for (int i = 0; i < transform.childCount; i++)
         {
-            Destroy(gameObject);
+            Destroy(transform.GetChild(i).gameObject);
         }
-        else
-        {
-            for (int i = 0; i < transform.childCount; i++)
-            {
-                Destroy(transform.GetChild(i));
-            }
-        }
+        canspawn = true;
     }
 
     private void spawn()
