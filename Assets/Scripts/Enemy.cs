@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour
     public float damage;
     public float cddamage;
     protected Target target;
-    protected float hp;
 
     protected virtual void Start()
     {

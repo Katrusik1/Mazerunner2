@@ -1352,13 +1352,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy:
-  - {fileID: 303769548714169147, guid: cfef66d53b98064408ca746ce67a4d01, type: 3}
+  - {fileID: 6876364690180376350, guid: c41fd382227165247860e8bfee49ab36, type: 3}
   spawningPoints:
   - {fileID: 7194242650478158449}
   - {fileID: 7521536359058618034}
   - {fileID: 5277115255731104892}
   - {fileID: 3394193426312398627}
-  roomEn: {fileID: 0}
 --- !u!1 &2972790776073451690
 GameObject:
   m_ObjectHideFlags: 0

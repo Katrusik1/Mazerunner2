@@ -26,6 +26,13 @@ public class Spawnenemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        else
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                Destroy(transform.GetChild(i));
+            }
+        }
     }
 
     private void spawn()

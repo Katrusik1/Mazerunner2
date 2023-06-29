@@ -5,18 +5,17 @@ using UnityEngine;
 
 public class EnemyJager : Enemy
 {
-    public Material material;
     protected override void Start()
     {
         speed = 0.05f;
         damage = 10.0f;
-        target = GetComponent<Target>();
-        hp = target.health;
     }
-
-    protected override void Update()
+    private void Update()
     {
-        //ударить, если можно
+        if(transform.childCount == 0)
+        {
+            Destroy(gameObject);
+        }
     }
     private void OnTriggerStay(Collider other) // поворот на игрока и ходьба
     {
@@ -26,16 +25,15 @@ public class EnemyJager : Enemy
             Vector3 newObjTransform = new Vector3(transform.position.x,0.0f, transform.position.z);
             Quaternion rotation = CalculateRotationAngle(newObjTransform, colliderObjectPosition);
             transform.rotation = rotation;
-            transform.localPosition += transform.forward * speed * Time.deltaTime;
+            
             if((colliderObjectPosition - newObjTransform).magnitude <= 2)
             {
                 IGiveDamage giveDamage = other.GetComponent<IGiveDamage>();
                 giveDamage.giveDamage(0.01f);
-                material.color = Color.red;
             }
             else
             {
-                material.color = Color.blue;
+                transform.localPosition += transform.forward * speed * Time.deltaTime;
             }
         }
     }
