@@ -10,21 +10,36 @@ public class Spawnenemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (canspawn)
-        {
+        { 
             spawn();
             canspawn = false;
         }
+        if (transform.childCount == 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+        canspawn = true;
     }
 
     private void spawn()
     {
-        Debug.Log(enemy.Length);
-        Debug.Log(spawningPoints.Length);
-        for(int i = 0; i < spawningPoints.Length;)
+        for(int i = 0; i < spawningPoints.Length; i += 1)
         {
             GameObject newenemy = Instantiate(enemy[Random.Range(0, enemy.Length-1)]);
+            newenemy.transform.SetParent(transform);
             newenemy.transform.position = spawningPoints[i].transform.position + new Vector3(0, 0.5f,0);
-            i += 1;
         }
+    }
+    private Vector3 giveInfoposition(Collider col)
+    {
+        return col.transform.position;
     }
 }

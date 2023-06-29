@@ -27,8 +27,6 @@ public class PlayerInteraction : MonoBehaviour
         if (Physics.Raycast(ray, out hit, interactionDistance))
         {
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
-            Debug.Log(hit.collider);
-
             if (interactable != null)
             {
                 hitSomething = true;
@@ -37,7 +35,10 @@ public class PlayerInteraction : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     canDrop = true;
-                    hit.collider.GetComponent<Gun>().taken(cam);
+                    if (hit.collider.GetComponent<Gun>() != null)
+                    {
+                        hit.collider.GetComponent<Gun>().taken(cam);
+                    }
                     interactable.Interact();
                 }
 

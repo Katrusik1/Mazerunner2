@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Move : MonoBehaviour
+public class Move : MonoBehaviour, IGiveDamage
 {
     public float speed = 7f;
     public float jumpPower = 200f;
     public bool ground;
     public float sens = 200f;
+    public double health = 100;
 
     private Rigidbody rb;
     private CapsuleCollider collider;
@@ -22,7 +23,6 @@ public class Move : MonoBehaviour
     }
     void Update()
     {
-
         GetInput();
     }
 
@@ -71,5 +71,10 @@ public class Move : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Ground") ground = false;
+    }
+
+    public void giveDamage(double hp)
+    {
+        health -= hp;
     }
 }
