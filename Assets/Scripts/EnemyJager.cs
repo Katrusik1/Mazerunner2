@@ -18,6 +18,14 @@ public class EnemyJager : Enemy
         {
             Destroy(gameObject);
         }
+        if (!cangiveDamage)
+        {
+            if (deley <10)
+            {
+                deley += Time.deltaTime;
+            }
+            else { cangiveDamage = true; }
+        }
     }
     private void OnTriggerStay(Collider other) // поворот на игрока и ходьба
     {
@@ -34,8 +42,8 @@ public class EnemyJager : Enemy
                 {
                     cangiveDamage = false;
                     IGiveDamage giveDamage = other.GetComponent<IGiveDamage>();
-                    giveDamage.giveDamage(0.01f);
-
+                    giveDamage.giveDamage(5.0f);
+                    deley = 0;
                 }
             }
             else
