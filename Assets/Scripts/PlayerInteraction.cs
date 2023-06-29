@@ -35,7 +35,10 @@ public class PlayerInteraction : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     canDrop = true;
-                    hit.collider.GetComponent<Gun>().taken(cam);
+                    if (hit.collider.GetComponent<Gun>() != null)
+                    {
+                        hit.collider.GetComponent<Gun>().taken(cam);
+                    }
                     interactable.Interact();
                 }
 
