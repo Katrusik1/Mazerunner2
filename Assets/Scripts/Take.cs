@@ -33,7 +33,7 @@ public class Take : MonoBehaviour, IInteractable
     {
         isTaking = !isTaking;
         rb = GetComponent<Rigidbody>();
-        GetComponent<BoxCollider>().enabled = false;
+        GetComponent<BoxCollider>().isTrigger = true;
         rb.useGravity = false;
         transform.SetParent(WhoTakes.transform);
         transform.SetLocalPositionAndRotation(new Vector3(0.34f, -0.5f, 0.909f), Quaternion.Euler(WhoTakes.transform.rotation.x, 180f, 0f));
@@ -45,7 +45,7 @@ public class Take : MonoBehaviour, IInteractable
         {
             transform.SetParent(null);
             rb = GetComponent<Rigidbody>();
-            GetComponent<BoxCollider>().enabled = true;
+            GetComponent<BoxCollider>().isTrigger = false;
             rb.useGravity = true;
             GetComponent<Gun>().fpsCam = null;
             isTaking = !isTaking;

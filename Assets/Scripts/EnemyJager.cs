@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EnemyJager : Enemy
 {
+    private bool cangiveDamage = true;
+    private float deley = 10;
     protected override void Start()
     {
         speed = 0.05f;
@@ -28,8 +30,13 @@ public class EnemyJager : Enemy
             
             if((colliderObjectPosition - newObjTransform).magnitude <= 2)
             {
-                IGiveDamage giveDamage = other.GetComponent<IGiveDamage>();
-                giveDamage.giveDamage(0.01f);
+                if (cangiveDamage)
+                {
+                    cangiveDamage = false;
+                    IGiveDamage giveDamage = other.GetComponent<IGiveDamage>();
+                    giveDamage.giveDamage(0.01f);
+
+                }
             }
             else
             {
